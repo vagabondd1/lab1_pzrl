@@ -23,7 +23,7 @@ int convert_expression(const char *ptr1, const char *ptr2, const char *ptr3, int
 
     a2 = atoi(ptr3);
 
-    if (n2 != 1 || (*ptr2 != '+' && *ptr2 != '-' && *ptr2 != '*' && *ptr2 != '/')) {
+    if (n2 != 1 || (*ptr2 != '+' && *ptr2 != '-' && *ptr2 != '*' && *ptr2 != '/' && *ptr2 != '%')) {
         *ptr_err = 2; 
         return 0;
     }
@@ -31,7 +31,18 @@ int convert_expression(const char *ptr1, const char *ptr2, const char *ptr3, int
         case '+': return a1 + a2;
         case '-': return a1 - a2;
         case '*': return a1 * a2;
-        case '/': return a2 != 0 ? a1 / a2 : 0;
+        case '/': 
+            if (a2 == 0) {
+                *ptr_err = 3; // Division by zero error
+                return 0;
+            }
+            return a1 / a2;
+        case '%': 
+            if (a2 == 0) {
+                *ptr_err = 3; // Division by zero error
+                return 0;
+            }
+            return a1 % a2;
     }
 
     return 0;

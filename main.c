@@ -21,10 +21,11 @@ int main(int argc, char *argv[argc])
         }
     }
     if ((argc - 3) % 3 != 0) {
-        printf("EROR: INCORRECT NUMBER OF ARGUMENTS\n");
+        printf("ERROR: INCORRECT NUMBER OF ARGUMENTS\n");
         return 0;
     }
     int *array_rs = (int*)calloc((argc - 3) / 3,sizeof(int));
+    int flag_value = atoi(argv[argc-1]);
     int flag_err = 0;
     int index_of_expr = 1;
     for (int i = 1; i < argc - 2 - 2; i += 3) {
@@ -35,18 +36,25 @@ int main(int argc, char *argv[argc])
             return 0;
         }
         else if (flag_err == 2) {
-            printf("ERROR: IN EXPRESSION NO %d THERE IS NO OPERATION ON THE NUMBERS",index_of_expr);
+            printf("ERROR: IN EXPRESSION NO %d THERE IS NO OPERATION ON THE NUMBERS\n",index_of_expr);
+            free(array_rs);
+            return 0;
+        }
+        else if (flag_err == 3) {
+            printf("ERROR: DIVISION BY ZERO in EXPRESSION No %d\n",index_of_expr);
             free(array_rs);
             return 0;
         }
         array_rs[index_of_expr - 1] = res1;
         ++index_of_expr;
     }
-     printf("Результаты выражений:\n");
     for (int i = 0; i < (argc - 3) / 3; ++i) {
-        printf("Результат %d: %d\n", i + 1, array_rs[i]);
+        printf("Ответ №%d: %d\n", i + 1, array_rs[i]);
     }
-
+        for (int i = 0; i < (argc - 3) / 3; ++i) {
+            printf("%c",array_rs[i] - flag_value);
+    }
+    printf("\n");
     free(array_rs);  // Освобождаем память
     return 0;
 }
