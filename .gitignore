@@ -1,0 +1,15 @@
+# Ignoring object files
+*.o
+
+# Ignoring "exe" files
+*.out
+*.exe
+*
+!*.*
+!*/
+!Makefile
+# Ignoring tmpr files
+*~
+*.swp
+*.swo
+*.tmp
