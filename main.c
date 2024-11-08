@@ -50,7 +50,13 @@ int main(int argc, char *argv[argc])
         }
         else if (flag_err == 3)
         {
-            printf("ERROR: DIVISION BY ZERO in EXPRESSION No %d\n", index_of_expr);
+            printf("ERROR: DIVISION BY ZERO IN EXPRESSION No %d\n", index_of_expr);
+            free(array_rs);
+            return 0;
+        }
+        else if (flag_err == 4)
+        {
+            printf("EROR: INCORRECT OPERATION BETWEEN NUMBERS IN EXPRESSION No %d\n",index_of_expr);
             free(array_rs);
             return 0;
         }

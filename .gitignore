@@ -4,10 +4,6 @@
 # Ignoring "exe" files
 *.out
 *.exe
-*
-!*.*
-!*/
-!Makefile
 # Ignoring tmpr files
 *~
 *.swp
