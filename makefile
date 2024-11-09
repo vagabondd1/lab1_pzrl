@@ -5,7 +5,7 @@ all: $(TARGET)
 clean:
 	rm -f $(TARGET) *.o
 run: $(TARGET)
-	./$(TARGET)
+	./$(TARGET) $(ARGS) 
 main.o: main.c
 	gcc -c main.c
 func.o: func.c

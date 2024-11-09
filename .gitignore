@@ -1,11 +1,5 @@
-# Ignoring object files
-*.o
+*
+!*.c
+!*.h
+!makefile
 
-# Ignoring "exe" files
-*.out
-*.exe
-# Ignoring tmpr files
-*~
-*.swp
-*.swo
-*.tmp
