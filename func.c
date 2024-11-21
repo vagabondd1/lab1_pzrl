@@ -7,24 +7,34 @@ int convert_expression(const char *ptr1, const char *ptr2, const char *ptr3, int
 {
     int a1 = 0, a2 = 0;
     *ptr_err = 0;
-    for (int i = 0; i < n1; ++i)
+    int i1 = 0;
+    if (ptr1[0] == '-' && n1 > 1) {
+        ++i1;
+    }
+    for (; i1 < n1; ++i1)
     {
-        if (!isdigit(ptr1[i]))
+        if (!isdigit(ptr1[i1]))
         {
             *ptr_err = 1;
             return 0;
         }
     }
     a1 = atoi(ptr1);
-    for (int i = 0; i < n3; ++i)
+
+    int i2 = 0;
+    if (ptr3[0] == '-' && n3 > 1) {
+        ++i2;
+    }
+    for (; i2 < n3; ++i2)
     {
-        if (!isdigit(ptr3[i]))
+        if (!isdigit(ptr3[i2]))
         {
             *ptr_err = 1;
             return 0;
         }
     }
     a2 = atoi(ptr3);
+
     switch (*ptr2)
     {
     case '+':

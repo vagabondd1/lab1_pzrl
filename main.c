@@ -24,6 +24,10 @@ int main(int argc, char *argv[argc])
             return 0;
         }
     }
+    if (!isdigit(argv[argc-1][0])) {
+        printf("ERROR: INCORRECT VALUE OF FLAG\n");
+        return 0;
+    }
     if ((argc - 3) % 3 != 0)
     {
         printf("ERROR: INCORRECT NUMBER OF ARGUMENTS\n");
@@ -56,7 +60,7 @@ int main(int argc, char *argv[argc])
         }
         else if (flag_err == 4)
         {
-            printf("EROR: INCORRECT OPERATION BETWEEN NUMBERS IN EXPRESSION No %d\n",index_of_expr);
+            printf("ERROR: INCORRECT OPERATION BETWEEN NUMBERS IN EXPRESSION No %d\n",index_of_expr);
             free(array_rs);
             return 0;
         }
