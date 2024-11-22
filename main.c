@@ -24,9 +24,17 @@ int main(int argc, char *argv[argc])
             return 0;
         }
     }
-    if (!isdigit(argv[argc-1][0])) {
-        printf("ERROR: INCORRECT VALUE OF FLAG\n");
-        return 0;
+    int cnt = 0, len_flag = strlen(argv[argc-1]);
+    if (argv[argc-1][0] == '-' && len_flag > 1) {
+        ++cnt;
+    }
+    for (; cnt < len_flag; ++cnt)
+    {
+        if (!isdigit(argv[argc-1][cnt]))
+        {
+            printf("ERROR: INCORRECT VALUE OF FLAG\n");
+            return 0;
+        }
     }
     if ((argc - 3) % 3 != 0)
     {
